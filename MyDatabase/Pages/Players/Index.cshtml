@@ -1,0 +1,37 @@
+﻿@page
+@model MyDatabase.Pages.Players.IndexModel
+@{
+}
+
+
+<br />
+<h2>List of Players</h2>
+<a class='btn btn-primary btn-sm' href="/Players/Create">New Player</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nickname</th>
+            <th>Role</th>
+            <th>Heroes</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.PlayerInfos)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.nickname</td>
+                <td>@item.role</td>
+                <td>@item.heroes</td>
+                <td>@item.created_at</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Players/Edit?id=@item.id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Players/Delete?id=@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
